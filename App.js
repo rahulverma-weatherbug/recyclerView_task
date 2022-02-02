@@ -18,9 +18,9 @@
  import RealRecyclerView from './realRecyclerView.android.js';
  const ROWS_IN_DATA_SOURCE = 20;
  const dataSource = [];
- for (let i=0; i<ROWS_IN_DATA_SOURCE; i++) dataSource.push(`hi droidwolf ${i}。 row=${i}。hahha`);
+ for (let i=0; i<ROWS_IN_DATA_SOURCE; i++) dataSource.push(`hi android ${i}。 row=${i}。`);
  
- class HelloWorld extends Component {
+ class RecyclerView extends Component {
    render() {
      return (
          <RealRecyclerView
@@ -66,4 +66,4 @@
    },
  });
  
-AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
+AppRegistry.registerComponent('RecyclerView', () => RecyclerView);
