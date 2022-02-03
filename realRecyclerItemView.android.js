@@ -24,12 +24,14 @@ class RealRecyclerItemView extends Component{
 // 		innerRowID:this.props.rowID
 // 	};  
 //   }
-  onUpdateView(event){
+  onUpdateView = (event)=>{
     const {rowID} = event.nativeEvent;
     if(__DEV__)console.log("onUpdateView:new="+rowID+", old="+this.state.innerRowID);
 	if(this.state.innerRowID!==rowID){
 		this.props.rowID=rowID;
 		this.setState({innerRowID:rowID});
+
+        console.log("on update func innerrowid",this.state.innerRowID)
 	}
   }
   render() {

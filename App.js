@@ -43,7 +43,7 @@
        <Text style={{
        height:99,
        flexDirection: 'row',
-       color: '#333333',
+       color: '#F2F',
        justifyContent: 'center',
        alignItems: 'center',
        textAlign: 'center',
