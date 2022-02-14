@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class MyReactPackage implements ReactPackage {
+public class RNReactPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
@@ -25,8 +25,8 @@ public class MyReactPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new RealRecyclerViewManager(),
-                new RealRecyclerItemViewManager()
+                new RNRecyclerViewManager(),
+                new RNRecyclerItemViewManager()
         );
 
     }

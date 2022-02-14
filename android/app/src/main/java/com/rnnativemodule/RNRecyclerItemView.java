@@ -12,11 +12,11 @@ import com.facebook.react.uimanager.events.EventDispatcher;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.views.view.ReactViewGroup;
 
-public class RealRecyclerItemView extends ReactViewGroup {
+public class RNRecyclerItemView extends ReactViewGroup {
     final EventDispatcher mEventDispatcher;
 
     private int mHeight;
-    public RealRecyclerItemView(Context context) {
+    public RNRecyclerItemView(Context context) {
         super(context);
         mEventDispatcher = ((ReactContext) getContext()).getNativeModule(UIManagerModule.class).getEventDispatcher();
     }
@@ -66,6 +66,7 @@ public class RealRecyclerItemView extends ReactViewGroup {
         public String getEventName() {
             return "onUpdateView";
         }
+
 
         @Override
         public void dispatch(RCTEventEmitter rctEventEmitter) {

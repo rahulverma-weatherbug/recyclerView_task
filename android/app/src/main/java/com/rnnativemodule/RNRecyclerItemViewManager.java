@@ -9,19 +9,19 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class RealRecyclerItemViewManager extends ViewGroupManager<RealRecyclerItemView> {
+public class RNRecyclerItemViewManager extends ViewGroupManager<RNRecyclerItemView> {
     @Override
-    public RealRecyclerItemView createViewInstance(ThemedReactContext context) {
-        return new RealRecyclerItemView(context);
+    public RNRecyclerItemView createViewInstance(ThemedReactContext context) {
+        return new RNRecyclerItemView(context);
     }
 
     @Override
     public String getName() {
-        return RealRecyclerItemView.class.getSimpleName();
+        return RNRecyclerItemView.class.getSimpleName();
     }
 
     @ReactProp(name = "innerRowID")
-    public void setInnerRowID(RealRecyclerItemView view, int val) {
+    public void setInnerRowID(RNRecyclerItemView view, int val) {
         view.setInnerRowID(val);
     }
 
@@ -33,4 +33,6 @@ public class RealRecyclerItemViewManager extends ViewGroupManager<RealRecyclerIt
                 .put("onUpdateView", MapBuilder.of("registrationName", "onUpdateView"))
                 .build();
     }
+
+    // android function --> js function
 }

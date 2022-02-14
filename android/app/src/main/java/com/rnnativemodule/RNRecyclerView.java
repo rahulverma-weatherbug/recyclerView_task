@@ -16,18 +16,18 @@ import com.facebook.react.uimanager.events.EventDispatcher;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RealRecyclerView extends RecyclerView {
+public class RNRecyclerView extends RecyclerView {
     private List<View> mRecycleViews = null;
     private int mRowHeight;
     private int mHoldItems;
     private EventDispatcher mEventDispatcher;
 
-    private final MyAdapter mMyAdapter;
-    public RealRecyclerView(Context context) {
+    private final RNAdapter mRNAdapter;
+    public RNRecyclerView(Context context) {
         super(context);
         setLayoutManager(new LinearLayoutManager(getContext()));
-        mMyAdapter=new MyAdapter();
-        setAdapter(mMyAdapter);
+        mRNAdapter =new RNAdapter();
+        setAdapter(mRNAdapter);
     }
 
     protected void onMeasure(int widthSpec, int heightSpec) {
@@ -35,7 +35,7 @@ public class RealRecyclerView extends RecyclerView {
         setMeasuredDimension(w, h);
     }
     void addNewView(View view) {
-        final RealRecyclerItemView childView = (RealRecyclerItemView) view;
+        final RNRecyclerItemView childView = (RNRecyclerItemView) view;
         if (mRecycleViews == null) {
             mRecycleViews = new ArrayList<>(mHoldItems);
         }
@@ -43,7 +43,7 @@ public class RealRecyclerView extends RecyclerView {
             mRecycleViews.add(childView);
             childView.setHeight(mRowHeight);
         }
-        mMyAdapter.notifyDataSetChanged();
+        mRNAdapter.notifyDataSetChanged();
     }
 
 
@@ -52,11 +52,11 @@ public class RealRecyclerView extends RecyclerView {
             mRecycleViews.clear();
         }
         mEventDispatcher = null;
-        mMyAdapter.setNumRows(0);
+        mRNAdapter.setNumRows(0);
     }
 
     void setNumRows(int dataSize) {
-        mMyAdapter.setNumRows(dataSize);
+        mRNAdapter.setNumRows(dataSize);
     }
 
     void setRowHeight(int rowHeight) {
@@ -66,7 +66,7 @@ public class RealRecyclerView extends RecyclerView {
         if (mHoldItems < 6) mHoldItems = 6;
     }
 
-    private class MyAdapter extends Adapter<ViewHolder> {
+    private class RNAdapter extends Adapter<ViewHolder> {
         private int mDataSize = 0;
         private int mUPos = 0;
 
@@ -95,8 +95,8 @@ public class RealRecyclerView extends RecyclerView {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            if (holder.itemView instanceof RealRecyclerItemView) {
-                final RealRecyclerItemView childView = (RealRecyclerItemView) holder.itemView;
+            if (holder.itemView instanceof RNRecyclerItemView) {
+                final RNRecyclerItemView childView = (RNRecyclerItemView) holder.itemView;
                 childView.setInnerRowID(position);
                 childView.setHeight(mRowHeight);
             }
@@ -105,6 +105,6 @@ public class RealRecyclerView extends RecyclerView {
         public int getItemCount() {
             return mDataSize;
         }
-    }//end  class MyAdapter
+    }
 }
 
